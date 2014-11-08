@@ -1,0 +1,87 @@
+<% build_meta_tags %>
+<div class="jumbotron">
+  <div class="pull-right ruby-logo">
+    <%= render :partial => "ruby_logo" %>
+  </div>
+  <h1>Nairuby Ruby Users Group</h1>
+
+  <p></p>
+
+  <p>
+    Welcome to Nairuby, a user group for
+    <%= link_to "Ruby", "https://www.ruby-lang.org/" %>
+    programmers based in
+    <%= link_to "Nairobi, Kenya.", "http://goo.gl/AMspr8" %>
+    We welcome all programmers of all levels, from beginner to advanced!
+  </p>
+</div>
+<div class="alert alert-danger">
+  <strong>RubyConf Philippines 2015</strong>
+  will be held on 27-28 March, 2015 at Boracay!
+  <%= link_to "Visit the official site for more details.", "http://rubyconf.ph" %>
+</div>
+<div class="row front-columns">
+  <div class="col-md-4">
+    <h2>Know the local scene</h2>
+
+    <p>
+      Want to know who uses Ruby in the Philippines? Connect with the community via:
+    </p>
+    <ul class="community-links">
+      <li>
+        <%= link_to "https://groups.google.com/forum/#!forum/nairuby", target: '_blank' do %>
+            <span class="fa fa-users"></span>
+            Google Group
+        <% end %>
+        (sign-up to receive notifications)
+      </li>
+      <li>
+        <%= link_to "http://www.facebook.com/groups/phrug/", target: '_blank' do %>
+            <span class="fa fa-facebook"></span>
+            Facebook Group
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "https://twitter.com/NairubyKE", target: '_blank' do %>
+            <span class="fa fa-twitter"></span>
+            Twitter
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "https://groups.google.com/forum/#!forum/nairuby", target: '_blank' do %>
+            <span class="fa fa-envelope"></span>
+            Google Group
+        <% end %>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-4">
+    <h2>Join our meetups</h2>
+
+    <p>We hold meetups every third Thursday of the month. </p>
+
+    <p>There we talk about all things related to Ruby and Rails, network over pizza, and afterwards we go out for a
+      drink.</p>
+
+    <p>
+      Our next meetup is on
+      <strong>
+        <%= next_meetup(@next_meetup) %>
+      </strong>
+    </p>
+
+    <p>
+      <%= link_to "Find out more about our events", events_url, :class => "btn btn-default btn-lg" %>
+    </p>
+  </div>
+  <div class="col-md-4">
+    <h2>Learn Ruby and Rails</h2>
+
+    <p>Want to learn Ruby and Rails but don't know which among the many online resources out there are actually
+      good? </p>
+
+    <p>
+      <%= link_to "We've got you covered.", learn_url, :class => "btn btn-default btn-lg" %>
+    </p>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<% build_meta_tags title: "Events" %>
+<h1>Events</h1>
+<div class="pull-right">
+  <%= link_to events_url(format: 'ics', protocol: 'webcal'), class: 'btn btn-primary' do %>
+      <span class="glyphicon glyphicon-calendar"></span>
+      Calendar Subscription
+  <% end %>
+</div>
+<% unless @current.empty? %>
+    <div class="row current-meetups">
+      <div class="col-md-12">
+        <h2>Ongoing Events</h2>
+        <%= render :partial => @current, :spacer_template => "event_spacer" %>
+      </div>
+    </div>
+<% end %>
+<% unless @upcoming.empty? %>
+    <div class="row upcoming-meetups">
+      <div class="col-md-12">
+        <h2>Upcoming Events</h2>
+        <%= render :partial => @upcoming, :spacer_template => "event_spacer" %>
+      </div>
+    </div>
+<% end %>
+<% unless @past.empty? %>
+    <div class="row past-meetups">
+      <div class="col-md-12">
+        <h2>Past Events</h2>
+        <%= render :partial => @past, :spacer_template => "event_spacer" %>
+      </div>
+    </div>
+<% end %>

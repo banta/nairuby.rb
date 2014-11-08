@@ -1,0 +1,12 @@
+<% build_meta_tags title: "Tags" %>
+<h1>Tags</h1>
+<ul class="tag-list">
+  <% @tags.each do |tag| %>
+      <li>
+        <%= link_to tag.name, tag %>
+        <span class="badge">
+        <%= tag.presentations.count %>
+      </span>
+      </li>
+  <% end %>
+</ul>

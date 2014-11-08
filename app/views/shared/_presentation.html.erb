@@ -1,0 +1,44 @@
+<div class="row presentation">
+  <div class="col-lg-6 col-md-4 col-sm-12">
+    <h3>
+      <%= pres.name %>
+    </h3>
+
+    <p>
+      <% unless pres.speakers.empty? %>
+          by
+          <%= pres.speakers.map { |s| s.user.name }.join(", ") %>
+      <% end %>
+    </p>
+    <% unless pres.tags.empty? %>
+        <p class="tags">
+          <% pres.tags.each do |tag| %>
+              <%= link_to tag.name, tag %>
+          <% end %>
+        </p>
+    <% end %>
+    <% unless pres.slideshare.blank? %>
+        <%= link_to "http://www.slideshare.net/#{pres.slideshare}", :target => "_blank" do %>
+            <span class="fa fa-external-link"></span>
+            View slides new tab
+        <% end %>
+    <% end %>
+    <% unless pres.speakerdeck.blank? %>
+        <%= link_to "http://www.speakerdeck.com/#{pres.speakerdeck}", :target => "_blank" do %>
+            <span class="fa fa-external-link"></span>
+            View slides new tab
+        <% end %>
+    <% end %>
+  </div>
+  <div class="col-lg-6 col-md-8 col-sm-12">
+    <% unless pres.youtube.blank? %>
+        <iframe allowfullscreen="allowfullscreen" frameborder="0" height="315" src="http://www.youtube-nocookie.com/embed/<%= pres.youtube %>" width="560"></iframe>
+        <p>
+          <%= link_to "http://www.youtube.com/watch?v=#{pres.youtube}", :target => "_blank" do %>
+              <span class="glyphicon glyphicon-film"></span>
+              Watch video in new tab
+          <% end %>
+        </p>
+    <% end %>
+  </div>
+</div>

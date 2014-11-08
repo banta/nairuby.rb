@@ -1,0 +1,16 @@
+<div class="row event">
+  <div class="col-sm-12">
+    <h3>
+      <%= link_to event.name, event %>
+    </h3>
+    <%= render :partial => "events/display_time", :locals => {:event => event} %>
+    <% unless event.youtube_playlist.blank? %>
+        <p class="playlist">
+          <%= link_to "http://www.youtube.com/playlist?list=#{event.youtube_playlist}", :target => "_blank" do %>
+              <span class="glyphicon glyphicon-film"></span>
+              Watch event video playlist
+          <% end %>
+        </p>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<% content_for :scripts do %>
+    <%= render "gmaps" %>
+<% end %>
+<% build_meta_tags title: @event.name, description: strip_tags(@event.description_html) %>
+<div class="row event">
+  <div class="col-sm-12">
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <h1>
+          <%= @event.name %>
+        </h1>
+        <%= render :partial => "display_time", :locals => {:event => @event} %>
+        <% unless @event.description.blank? %>
+            <%= raw @event.description_html %>
+        <% end %>
+        <% unless @event.youtube_playlist.blank? %>
+            <p class="playlist">
+              <%= link_to "http://www.youtube.com/playlist?list=#{@event.youtube_playlist}", :target => "_blank" do %>
+                  <span class="glyphicon glyphicon-film"></span>
+                  Watch event video playlist
+              <% end %>
+            </p>
+        <% end %>
+      </div>
+      <% unless @event.venue.nil? %>
+          <div class="col-md-6 col-sm-12">
+            <div class="map_container">
+              <div class="gmaps4rails_map" id="map">&nbsp;</div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+    <% unless @event.presentations.empty? %>
+        <h2>Presentations:</h2>
+    <% end %>
+    <% @event.presentations.each do |pres| %>
+        <%= render partial: "shared/presentation", locals: {pres: pres} %>
+    <% end %>
+  </div>
+</div>

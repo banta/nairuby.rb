@@ -1,0 +1,7 @@
+<% build_meta_tags title: @tag.name, description: strip_tags(@tag.description) %>
+<h1>
+  <%= @tag.name %>
+</h1>
+<% @tag.presentations.each do |pres| %>
+    <%= render partial: "shared/presentation", locals: {pres: pres} %>
+<% end %>

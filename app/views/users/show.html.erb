@@ -1,0 +1,55 @@
+<% build_meta_tags title: @user.name %>
+<h1>
+  <%= @user.name %>
+</h1>
+<p class="user-links">
+  <% @user.links.each do |link| %>
+      <%= link_to link.url do %>
+          <i class="fa <%= Link::LINK_TYPE_FA_LOOKUP[link.link_type] %> fa-2x" title="<%= link.link_type %>"></i>
+      <% end %>
+  <% end %>
+</p>
+<% unless @user.presentations.count < 1 %>
+    <h2>Talks and Presentations:</h2>
+    <% @user.presentations.each do |pres| %>
+        <div class="row">
+          <div class="col-lg-6 col-md-4 col-sm-12">
+            <h3>
+              <%= pres.name %>
+            </h3>
+
+            <p>
+              Presented at
+              <%= link_to pres.event.name, pres.event %>
+              <% unless pres.speakers.count < 2 %>
+                  by
+                  <%= pres.speakers.map { |s| s.user.name }.join(", ") %>
+              <% end %>
+            </p>
+            <% unless pres.slideshare.blank? %>
+                <%= link_to "http://www.slideshare.net/#{pres.slideshare}", :target => "_blank" do %>
+                    <span class="fa fa-external-link"></span>
+                    View slides new tab
+                <% end %>
+            <% end %>
+            <% unless pres.speakerdeck.blank? %>
+                <%= link_to "http://www.speakerdeck.com/#{pres.speakerdeck}", :target => "_blank" do %>
+                    <span class="fa fa-external-link"></span>
+                    View slides new tab
+                <% end %>
+            <% end %>
+          </div>
+          <div class="col-lg-6 col-md-4 col-sm-12">
+            <% unless pres.youtube.blank? %>
+                <iframe allowfullscreen="allowfullscreen" frameborder="0" height="315" src="http://www.youtube-nocookie.com/embed/<%= pres.youtube %>" width="560"></iframe>
+                <p>
+                  <%= link_to "http://www.youtube.com/watch?v=#{pres.youtube}", :target => "_blank" do %>
+                      <span class="glyphicon glyphicon-film"></span>
+                      Watch video in new tab
+                  <% end %>
+                </p>
+            <% end %>
+          </div>
+        </div>
+    <% end %>
+<% end %>

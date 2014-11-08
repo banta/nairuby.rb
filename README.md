@@ -1,8 +1,5 @@
-# Philippine Ruby Users Group
+# Nairobi Ruby Users Group
 
-  * [![Dependency Status](https://gemnasium.com/phrug/pinoyrb.png)](https://gemnasium.com/phrug/pinoyrb)
-  * [![Build Status](https://travis-ci.org/phrug/pinoyrb.svg)](https://travis-ci.org/phrug/pinoyrb)
+Yay, Nairuby website. LOL
 
-Yay, bagong website. LOL
-
-http://pinoyrb.org
+http://nairuby.org

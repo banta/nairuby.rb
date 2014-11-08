@@ -68,4 +68,16 @@ Pinoyrb::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   config.action_controller.asset_host = "http://phrug.s3.amazonaws.com"
   config.assets.enabled = true
+
+  config.action_mailer.default_url_options = { :host => '54Beats.com' }
+
+  config.action_mailer.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 25,
+      domain: ENV["DOMAIN_NAME"],
+      authentication: "plain",
+      enable_starttls_auto: true,
+      user_name: ENV["GMAIL_USERNAME"],
+      password: ENV["GMAIL_PASSWORD"]
+  }
 end
